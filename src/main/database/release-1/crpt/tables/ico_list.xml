@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+	<changeSet author="thefattony" id="ico-list-table">
+		<createTable tableName="ico_list">
+			<column name="id" type="bigint" />
+			<column name="title" type="varchar(1000)" />
+			<column name="description" type="varchar(4000)" />
+			<column name="startDate" type="datetime" />
+			<column name="endDate" type="datetime" />
+			<column name="website" type="varchar(1000)" />
+		</createTable>
+	</changeSet>
+
+	<changeSet author="thefattony" id="ico-list-id-nn">
+		<addNotNullConstraint columnDataType="bigint"
+			columnName="id" tableName="ico_list" />
+	</changeSet>
+
+	<changeSet author="thefattony" id="ico-list-id-pk">
+		<addPrimaryKey columnNames="id" constraintName="pk_ico_list"
+					   tableName="ico_list" />
+	</changeSet>
+
+	<changeSet author="thefattony" id="ico-list-id-aa">
+		<addAutoIncrement columnDataType="bigint" columnName="id"
+						  tableName="ico_list" />
+	</changeSet>
+
+</databaseChangeLog>
+

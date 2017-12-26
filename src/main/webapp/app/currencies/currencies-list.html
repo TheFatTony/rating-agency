@@ -1,0 +1,27 @@
+<!--<ol class="breadcrumb">-->
+<!--<li class="breadcrumb-item active">{{ 'INDEX_CONTACTS_MENU_ITEM' |-->
+<!--translate }}</li>-->
+<!--</ol>-->
+
+<table class="table">
+    <thead class="thead-inverse">
+    <tr>
+        <th>#</th>
+        <th>{{'CURRENCIES_TABLE_NAME'|translate}}</th>
+        <th>{{'CURRENCIES_TABLE_SYMBOL'|translate}}</th>
+        <th>{{'CURRENCIES_TABLE_PRICE'|translate}}</th>
+        <th>{{'CURRENCIES_TABLE_D_VOLUME'|translate}}</th>
+        <th>{{'CURRENCIES_TABLE_MARKET_CAP'|translate}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in items">
+        <th scope="row">{{$index + 1}}</th>
+        <td>{{item.name}}</td>
+        <td>{{item.symbol}}</td>
+        <td>${{item.priceUsd | number:2}}</td>
+        <td>${{item.volumeUsd24h | number:2}}</td>
+        <td>${{item.marketCapUsd | number:2}}</td>
+    </tr>
+    </tbody>
+</table>

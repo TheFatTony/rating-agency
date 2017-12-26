@@ -1,0 +1,15 @@
+<!--<ol class="breadcrumb">-->
+<!--<li class="breadcrumb-item active">{{ 'INDEX_CONTACTS_MENU_ITEM' |-->
+<!--translate }}</li>-->
+<!--</ol>-->
+
+<div class="container">
+
+    <div class="row">{{item.title}}</div>
+    <div class="row">{{item.description}}</div>
+    <div class="row">{{item.startDate | date:'yyyy-MM-dd'}}</div>
+    <div class="row">{{item.endDate | date:'yyyy-MM-dd'}}</div>
+    <div class="row"><a href="{{item.website}}">{{item.title}}</a></div>
+    <div class="row block-text"><pre>{{item.content}}</pre></div>
+</div>
+

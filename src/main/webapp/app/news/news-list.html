@@ -1,0 +1,32 @@
+<!--<ol class="breadcrumb">-->
+<!--<li class="breadcrumb-item active">{{ 'INDEX_NEWS_MENU_ITEM' |-->
+<!--translate }}-->
+<!--</li>-->
+<!--</ol>-->
+
+<div class="col-md-9">
+    <div ng-repeat="newsItem in newsItems" style="min-height: 200px !important;">
+        <div class="row">
+            <h2 class="header">
+                <a href="#!/news_view/{{newsItem.id}}"
+                   class="newsletter-link">{{newsItem.title}}</a>
+            </h2>
+            <div class="col-sm-4">
+                <div class="row">
+                    <a href="#!/news_view/{{newsItem.id}}">
+                        <img class="xxshadow img-thumbnail" src="{{newsItem.imageUrl}}" width="292.5" height="200" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="" ng-bind-html="newsItem.shortContent | trust"></div>
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>
+<div class="col-md-3">
+    <div class="" style="position:fixed; top:60px; width: 275px;">
+        <ng-include src="'app/news/subscribe.html'"></ng-include>
+    </div>
+</div>

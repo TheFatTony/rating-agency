@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="thefattony" id="news-table-create">
+        <createTable tableName="news">
+            <column name="id" type="bigint"/>
+            <column name="title" type="varchar(4000)"/>
+            <column name="language" type="char(2)"/>
+            <column name="image_url" type="varchar(1000)"/>
+            <column name="short_content" type="clob"/>
+            <column name="content" type="clob"/>
+            <column name="effective_date" type="datetime"/>
+            <column name="publish_date" type="datetime"/>
+            <column name="published" type="char(1)"/>
+            <column name="author" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="thefattony" id="news-id-nn">
+        <addNotNullConstraint columnDataType="bigint"
+                              columnName="id" tableName="news"/>
+    </changeSet>
+
+    <changeSet author="thefattony" id="news-language-title">
+        <addNotNullConstraint columnDataType="varchar(4000)"
+                              columnName="title" tableName="news"/>
+    </changeSet>
+
+    <changeSet author="thefattony" id="news-language-nn">
+        <addNotNullConstraint columnDataType="char(2)"
+                              columnName="language" tableName="news"/>
+    </changeSet>
+
+    <changeSet author="thefattony" id="news-publish_date-nn">
+        <addNotNullConstraint columnDataType="datetime"
+                              columnName="publish_date" tableName="news"/>
+    </changeSet>
+
+    <changeSet author="thefattony" id="news-effective_date-nn">
+        <addNotNullConstraint columnDataType="datetime"
+                              columnName="effective_date" tableName="news"/>
+    </changeSet>
+
+    <changeSet author="thefattony" id="news-id-pk">
+        <addPrimaryKey columnNames="id" constraintName="pk_news"
+                       tableName="news"/>
+    </changeSet>
+
+    <changeSet author="thefattony" id="news-id-aa">
+        <addAutoIncrement columnDataType="bigint" columnName="id"
+                          tableName="news"/>
+    </changeSet>
+
+    <changeSet author="thefattony" id="news-alter-content">
+        <sql>ALTER TABLE news
+            CHANGE COLUMN short_content short_content LONGTEXT NULL DEFAULT NULL ,
+            CHANGE COLUMN content content LONGTEXT NULL DEFAULT NULL ;
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>
+

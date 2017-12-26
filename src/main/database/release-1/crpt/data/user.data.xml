@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+	<changeSet author="thefattony" id="user-data-1">
+		<sql endDelimiter="\nGO" splitStatements="true" stripComments="true">
+			insert into user (id, name, password) values (-1,'user',
+			'34548826710677b9d6fc3a566101fb7791056af4dc73761f1baa155a29fa8e217a8fb4c1fee5d4a6');
+			insert into user (id, name, password) values (-2,'admin',
+			'1deeb3c3af79cf31838f1b40cc2537e557664a9c118b307bde6e11b992883486c50b5cd64ed4b0d6');
+		</sql>
+	</changeSet>
+
+
+</databaseChangeLog>
+

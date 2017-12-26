@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+	<changeSet author="thefattony" id="user-roles-table">
+		<createTable tableName="User_roles">
+			<column name="User_id" type="bigint" />
+			<column name="roles" type="int" />
+		</createTable>
+	</changeSet>
+
+	<changeSet author="thefattony" id="user-roles-User_id-nn">
+		<addNotNullConstraint columnDataType="bigint"
+			columnName="User_id" tableName="User_roles" />
+	</changeSet>
+
+</databaseChangeLog>
+

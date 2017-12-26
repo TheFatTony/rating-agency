@@ -1,0 +1,64 @@
+<!--data-toggle="collapse" data-target="#navbar-collapse"-->
+<nav id="main-menu" class="navbar navbar-fixed-top navbar-default ng-hide" role="navigation" ng-show="initialized">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><u>LOGO</u></a>
+        </div>
+
+        <div id="navbar-collapse" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="#!/ratings">{{ 'INDEX_RATINGS_MENU_ITEM' |
+                    translate }}</a></li>
+                <li><a href="#!/ico-list">{{ 'INDEX_ICO_LIST_MENU_ITEM' | translate
+                    }}</a></li>
+                <li><a href="#!/currencies">{{ 'INDEX_CURRENCIES_MENU_ITEM' | translate
+                    }}</a></li>
+                <li><a href="#!/news">{{ 'INDEX_NEWS_MENU_ITEM' |
+                    translate }}</a></li>
+                <li><a href="#!/about">{{ 'INDEX_ABOUT_MENU_ITEM' |
+                    translate }}</a></li>
+                <li><a href="#!/contacts">{{ 'INDEX_CONTACTS_MENU_ITEM' |
+                    translate }}</a></li>
+                <li class="dropdown" ng-show="hasRole('ROLE_ADMIN')"><a
+                        href="" class="dropdown-toggle" data-toggle="dropdown">Admin</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#!/admin/news/news-vew">News</a></li>
+                        <li><a href="#!/admin/files/files-vew">Files</a></li>
+                        <li><a href="#!/admin/contacts/contacts-vew">Inquiries</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <!-- <li class="dropdown" ng-hide="user"><a href="#!/login">Login</a> -->
+                <!-- </li> -->
+                <li class="dropdown" ng-show="user"><a href="" class="dropdown-toggle" data-toggle="dropdown">{{user.name}}
+                    <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="" ng-click="logout()"><span
+                                class="fa fa-sign-out"></span> {{ 'INDEX_LOGOUT_MENU_ITEM' |
+                            translate }}</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="" class="dropdown-toggle"
+                                        data-toggle="dropdown">{{ 'INDEX_LANG_MENU_ITEM' | translate}} <b
+                        class="caret"></b>
+                </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="" ng-click="changeLanguage('en')"><span
+                                ng-style="lang == 'en' ? { 'font-weight': 'bold' } : { 'font-weight': 'normal' }"> {{
+                            'INDEX_LANG_ENGLISH' | translate }}</span></a></li>
+                        <li><a href="" ng-click="changeLanguage('ru')"><span
+                                ng-style="lang == 'ru' ? { 'font-weight': 'bold' } : { 'font-weight': 'normal' }">{{
+                            'INDEX_LANG_RUSSIAN' | translate }}</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
