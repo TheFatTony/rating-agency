@@ -1,0 +1,76 @@
+<!--<ol class="breadcrumb">-->
+<!--<li class="breadcrumb-item active">Test</li>-->
+<!--</ol>-->
+
+
+<div>
+    <div class="row"><h3>Create news</h3></div>
+    <div class="row">
+        <table class="">
+            <tr>
+                <td valign="top">Language:</td>
+                <td valign="top">
+                    <jqx-combo-box
+                            jqx-settings="comboBoxSettings" style="float: left;"
+                            ng-model="newsItem.language" id="language"></jqx-combo-box>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">Title:</td>
+                <td valign="top">
+                    <jqx-input jqx-width="460" jqx-height="25" ng-model="newsItem.title" id="title"></jqx-input>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">Image Url:</td>
+                <td valign="top">
+                    <jqx-input jqx-width="460" jqx-height="25"
+                               ng-model="newsItem.imageUrl" id="imageUrl"></jqx-input>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">Short Content:</td>
+                <td valign="top">
+                    <jqx-editor jqx-settings="editorSettingsShContent"
+                                ng-model="newsItem.shortContent" id="shortContent"></jqx-editor>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">Content:</td>
+                <td valign="top">
+                    <jqx-editor jqx-settings="editorSettingsContent"
+                                ng-model="newsItem.content" id="content"></jqx-editor>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">Publish Date:</td>
+                <td valign="top">
+                    <jqx-date-time-input jqx-width="230"
+                                         jqx-height="25" ng-model="newsItem.publishDate"
+                                         id="publishDate"></jqx-date-time-input>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">Published:</td>
+                <td valign="top">
+                    <jqx-check-box ng-model="newsItem.published"
+                                   id="published"></jqx-check-box>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">Author:</td>
+                <td valign="top">
+                    <jqx-input jqx-width="230" jqx-height="25"
+                               ng-model="newsItem.author" id="author"></jqx-input>
+                </td>
+            </tr>
+        </table>
+
+        <div class="row">
+            <div style="float: right; margin-top: 15px; margin-right: 45px;">
+                <jqx-button jqx-on-click="ok()" style="margin-right: 10px">Ok</jqx-button>
+                <jqx-button jqx-on-click="cancel()">Cancel</jqx-button>
+            </div>
+        </div>
+    </div>
+</div>

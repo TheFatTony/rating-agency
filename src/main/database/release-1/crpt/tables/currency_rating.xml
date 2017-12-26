@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+	<changeSet author="thefattony" id="currency_rating-table">
+		<createTable tableName="currency_rating">
+			<column name="id" type="bigint" />
+			<column name="name" type="varchar(1000)" />
+			<column name="symbol" type="varchar(45)" />
+			<column name="rank" type="int" />
+			<column name="price_usd" type="double" />
+			<column name="price_btc" type="double" />
+			<column name="volume_usd_24h" type="double" />
+			<column name="market_cap_usd" type="double" />
+			<column name="available_supply" type="double" />
+			<column name="total_supply" type="double" />
+			<column name="max_supply" type="double" />
+			<column name="percent_change_1h" type="double" />
+			<column name="percent_change_24h" type="double" />
+			<column name="percent_change_7d" type="double" />
+		</createTable>
+	</changeSet>
+
+	<changeSet author="thefattony" id="currency_rating-id-nn">
+		<addNotNullConstraint columnDataType="bigint"
+			columnName="id" tableName="currency_rating" />
+	</changeSet>
+
+	<changeSet author="thefattony" id="currency_rating-id-pk">
+		<addPrimaryKey columnNames="id" constraintName="pk_currency_rating"
+					   tableName="currency_rating" />
+	</changeSet>
+
+	<changeSet author="thefattony" id="currency_rating-id-aa">
+		<addAutoIncrement columnDataType="bigint" columnName="id"
+						  tableName="currency_rating" />
+	</changeSet>
+
+</databaseChangeLog>
+

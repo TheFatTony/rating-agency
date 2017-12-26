@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+			http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd">
+
+    <context:property-placeholder location="classpath:profiles/${build.profile.id}/application.properties"/>
+
+    <context:annotation-config/>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <context:component-scan base-package="com.chieftain.agency.rest.resources com.chieftain.agency.scheduling com.chieftain.agency.aws"/>
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+          destroy-method="close">
+        <property name="username" value="${db.username}"/>
+        <property name="password" value="${db.password}"/>
+        <property name="driverClassName" value="${db.driver}"/>
+        <property name="url" value="${db.url}"/>
+        <property name="removeAbandoned" value="${db.removeAbandoned}"/>
+        <property name="initialSize" value="${db.initialSize}"/>
+        <property name="maxActive" value="${db.maxActive}"/>
+    </bean>
+
+    <bean id="entityManagerFactory"
+          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="persistenceUnitName" value="cryptofundPU"/>
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="generateDdl" value="false"/>
+                <property name="showSql" value="true"/>
+                <property name="databasePlatform" value="org.hibernate.dialect.MySQL5Dialect"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+
+
+    <bean id="modelMapper" class="org.modelmapper.ModelMapper">
+    </bean>
+
+    <bean id="userDao" class="com.chieftain.agency.dao.user.JpaUserDao">
+    </bean>
+
+    <bean id="accessTokenDao"
+          class="com.chieftain.agency.dao.accesstoken.JpaAccessTokenDao">
+    </bean>
+
+    <bean id="newsDao" class="com.chieftain.agency.dao.news.JpaNewsDao">
+    </bean>
+
+    <bean id="filesDao" class="com.chieftain.agency.dao.files.JpaFilesDao">
+    </bean>
+
+    <bean id="icoListDao" class="com.chieftain.agency.dao.icolist.JpaIcoListDao">
+    </bean>
+
+    <bean id="currencyRatingDao" class="com.chieftain.agency.dao.currencyrating.JpaCurrencyRatingDao">
+    </bean>
+
+    <bean id="userInquiriesDao" class="com.chieftain.agency.dao.userinquiries.JpaUserInquiriesDao">
+    </bean>
+
+    <bean id="subscriptionsDao" class="com.chieftain.agency.dao.subscriptions.JpaSubscriptionsDao">
+    </bean>
+
+
+    <bean id="userService" class="com.chieftain.agency.service.DaoUserService">
+        <constructor-arg ref="userDao"/>
+        <constructor-arg ref="accessTokenDao"/>
+    </bean>
+
+    <bean id="passwordEncoder"
+          class="org.springframework.security.crypto.password.StandardPasswordEncoder">
+        <constructor-arg value="${app.secret}"/>
+    </bean>
+
+    <bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper"/>
+
+    <security:authentication-manager id="authenticationManager">
+        <security:authentication-provider
+                user-service-ref="userService">
+            <security:password-encoder ref="passwordEncoder"/>
+        </security:authentication-provider>
+    </security:authentication-manager>
+
+    <security:http entry-point-ref="unauthorizedEntryPoint"
+                   authentication-manager-ref="authenticationManager" create-session="stateless">
+        <security:csrf disabled="true"/>
+        <security:custom-filter ref="authenticationTokenProcessingFilter"
+                                position="PRE_AUTH_FILTER"/>
+        <security:intercept-url pattern="/rest/user/authenticate"
+                                access="permitAll"/>
+        <security:intercept-url method="GET" pattern="/rest/news/**"
+                                access="permitAll"/>
+        <security:intercept-url method="GET" pattern="/rest/files/**"
+                                access="permitAll"/>
+        <security:intercept-url method="GET" pattern="/rest/main/**"
+                                access="permitAll"/>
+        <security:intercept-url method="GET" pattern="/rest/icolist/**"
+                                access="permitAll"/>
+        <security:intercept-url method="GET" pattern="/rest/currencies/**"
+                                access="permitAll"/>
+        <security:intercept-url method="GET" pattern="/rest/admin/files/**"
+                                access="hasRole('ADMIN')"/>
+        <security:intercept-url method="POST" pattern="/rest/admin/files/upload/**"
+                                access="permitAll"/>
+        <security:intercept-url method="GET" pattern="/rest/admin/news/**"
+                                access="hasRole('ADMIN')"/>
+        <security:intercept-url method="PUT" pattern="/rest/admin/news/**"
+                                access="hasRole('ADMIN')"/>
+        <security:intercept-url method="POST" pattern="/rest/admin/news/**"
+                                access="hasRole('ADMIN')"/>
+        <security:intercept-url method="DELETE"
+                                pattern="/rest/admin/news/**" access="hasRole('ADMIN')"/>
+
+        <security:intercept-url method="POST" pattern="/rest/contacts/**"
+                                access="permitAll"/>
+        <security:intercept-url method="POST" pattern="/rest/subscriptions/**"
+                                access="permitAll"/>
+
+
+        <security:intercept-url method="GET" pattern="/rest/admin/contacts/**"
+                                access="hasRole('ADMIN')"/>
+
+
+        <security:headers>
+            <security:frame-options policy="SAMEORIGIN"/>
+        </security:headers>
+    </security:http>
+
+    <bean id="unauthorizedEntryPoint" class="com.chieftain.agency.rest.UnauthorizedEntryPoint"/>
+
+    <bean id="authenticationTokenProcessingFilter"
+          class="com.chieftain.agency.rest.AuthenticationTokenProcessingFilter">
+        <constructor-arg ref="userService"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="thefattony" id="subscriptions-table">
+        <createTable tableName="subscriptions">
+            <column name="id" type="bigint"/>
+            <column name="language" type="char(2)"/>
+            <column name="email" type="varchar(1000)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="thefattony" id="subscriptions-id-nn">
+        <addNotNullConstraint columnDataType="bigint"
+                              columnName="id" tableName="subscriptions"/>
+    </changeSet>
+
+    <changeSet author="thefattony" id="subscriptions-id-pk">
+        <addPrimaryKey columnNames="id" constraintName="pk_files"
+                       tableName="subscriptions" />
+    </changeSet>
+
+    <changeSet author="thefattony" id="subscriptions-id-aa">
+        <addAutoIncrement columnDataType="bigint" columnName="id"
+                          tableName="subscriptions"/>
+    </changeSet>
+
+    <changeSet author="thefattony" id="subscriptions-email-nn">
+        <addNotNullConstraint columnDataType="varchar(1000)"
+                              columnName="email" tableName="subscriptions"/>
+    </changeSet>
+
+</databaseChangeLog>
+

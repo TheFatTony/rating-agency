@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en" data-ng-app="app">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Assets Ratings Template</title>
+
+    <link rel="icon" href="favicon.png">
+
+
+    <!--<link rel="stylesheet" href="vendor/bootswatch/cerulean/bootstrap.css">-->
+    <link rel="stylesheet" href="vendor/bootswatch/united/bootstrap.css">
+
+
+    <link href="vendor/font-awesome/css/font-awesome.min.css"
+          rel="stylesheet">
+
+    <link href="vendor/jqwidgets/jqwidgets/styles/jqx.base.css"
+          rel="stylesheet">
+
+    <!--<link href="vendor/jqwidgets/jqwidgets/styles/jqx.darkblue.css"-->
+          <!--rel="stylesheet">-->
+    <link href="vendor/jqwidgets/jqwidgets/styles/jqx.orange.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="content/styles/currencies.css">
+    <link rel="stylesheet" href="content/styles/app.css">
+
+</head>
+<body class="default" ng-controller="LanguageSwitchController">
+<div class="loader" ng-hide="initialized">
+    <p>Loading</p>
+    <p>
+        <span class="fa fa-spinner fa-spin"></span>
+    </p>
+</div>
+
+<ng-include src="'app/main/main-menu.html'"></ng-include>
+
+<div el-size="size" class="ng-hide" ng-show="initialized ">
+    <div class="container"><div class="alert alert-danger" ng-show="error">{{error}}</div></div>
+    <div class="main-container container" ng-view></div>
+</div>
+
+<br><br><br>
+
+<ng-include src="'app/main/footer.html'"></ng-include>
+
+
+<script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript"
+        src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="vendor/angular/angular.min.js"></script>
+<script type="text/javascript"
+        src="vendor/angular-resource/angular-resource.js"></script>
+<script type="text/javascript"
+        src="vendor/angular-route/angular-route.min.js"></script>
+<script src="vendor/angular-sanitize/angular-sanitize.js"></script>
+<script type="text/javascript"
+        src="vendor/angular-cookies/angular-cookies.js"></script>
+<script type="text/javascript" src="vendor/matchmedia/matchMedia.js"></script>
+<script type="text/javascript"
+        src="vendor/matchmedia-ng/matchmedia-ng.js"></script>
+<script type="text/javascript"
+        src="vendor/angular-translate/angular-translate.js"></script>
+<script type="text/javascript"
+        src="vendor/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+<script type="text/javascript"
+        src="vendor/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+<script type="text/javascript"
+        src="vendor/angular-translate-storage-local/angular-translate-storage-local.js"></script>
+<script type="text/javascript"
+        src="vendor/angular-translate-storage-local/angular-translate-storage-local.js"></script>
+<script type="text/javascript"
+        src="vendor/jqwidgets/jqwidgets/jqxcore.js"></script>
+<script type="text/javascript"
+        src="vendor/jqwidgets/jqwidgets/jqxangular.js"></script>
+<script type="text/javascript"
+        src="vendor/jqwidgets/jqwidgets/jqxdropdownbutton.js"></script>
+<script type="text/javascript"
+        src="vendor/jqwidgets/jqwidgets/jqxdropdownlist.js"></script>
+<script type="text/javascript"
+        src="vendor/jqwidgets/jqwidgets/jqxdatetimeinput.js"></script>
+<script type="text/javascript" src="vendor/jqwidgets/jqwidgets/jqxwindow.js"></script>
+
+
+<script type="text/javascript" src="app/app.module.js"></script>
+
+<script type="text/javascript"
+        src="app/translations/translation.module.js"></script>
+<script type="text/javascript"
+        src="app/translations/translation.controller.js"></script>
+
+<script type="text/javascript" src="app/login/login.module.js"></script>
+<script type="text/javascript" src="app/login/login.service.js"></script>
+<script type="text/javascript" src="app/login/login.controller.js"></script>
+
+<script type="text/javascript" src="app/config.js"></script>
+
+<script type="text/javascript" src="app/main/main.module.js"></script>
+<script type="text/javascript" src="app/main/main-page.service.js"></script>
+<script type="text/javascript" src="app/main/main.controller.js"></script>
+
+
+
+<script type="text/javascript" src="app/news/news.module.js"></script>
+<script type="text/javascript" src="app/news/news.service.js"></script>
+<script type="text/javascript" src="app/news/news-top.service.js"></script>
+<script type="text/javascript" src="app/news/news-list.controller.js"></script>
+<script type="text/javascript" src="app/news/news-view.controller.js"></script>
+
+<script type="text/javascript" src="app/news/subscribe.service.js"></script>
+<script type="text/javascript" src="app/news/subscribe.controller.js"></script>
+
+<script type="text/javascript" src="app/about/about.module.js"></script>
+
+<script type="text/javascript" src="app/ratings/ratings.module.js"></script>
+
+
+<script type="text/javascript" src="app/contacts/contacts.module.js"></script>
+<script type="text/javascript" src="app/contacts/contacts.service.js"></script>
+<script type="text/javascript" src="app/contacts/contacts-create.controller.js"></script>
+
+<script type="text/javascript" src="app/ico-list/ico-list.module.js"></script>
+<script type="text/javascript" src="app/ico-list/ico-list.service.js"></script>
+<script type="text/javascript" src="app/ico-list/ico-list-list.controller.js"></script>
+<script type="text/javascript" src="app/ico-list/ico-list-view.controller.js"></script>
+
+<script type="text/javascript" src="app/currencies/currencies.module.js"></script>
+<script type="text/javascript" src="app/currencies/currencies.service.js"></script>
+<script type="text/javascript" src="app/currencies/currencies-list.controller.js"></script>
+
+<script type="text/javascript" src="app/admin/admin.module.js"></script>
+
+
+<script type="text/javascript" src="app/admin/news/news.module.js"></script>
+<script type="text/javascript" src="app/admin/news/news.service.js"></script>
+<script type="text/javascript"
+        src="app/admin/news/news-view.controller.js"></script>
+<script type="text/javascript"
+        src="app/admin/news/news-create.controller.js"></script>
+<script type="text/javascript"
+        src="app/admin/news/news-edit.controller.js"></script>
+
+
+<script type="text/javascript" src="app/admin/files/files.module.js"></script>
+<script type="text/javascript" src="app/admin/files/files.service.js"></script>
+<script type="text/javascript"
+        src="app/admin/files/files-view.controller.js"></script>
+<script type="text/javascript"
+        src="app/admin/files/files-create.controller.js"></script>
+
+<script type="text/javascript" src="app/admin/inquiries/inquiries.module.js"></script>
+<script type="text/javascript" src="app/admin/inquiries/inquiries.service.js"></script>
+<script type="text/javascript" src="app/admin/inquiries/inquiries-view.controller.js"></script>
+
+</body>
+</html>

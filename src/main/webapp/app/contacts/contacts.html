@@ -1,0 +1,43 @@
+<!--<ol class="breadcrumb">-->
+<!--<li class="breadcrumb-item active">{{ 'INDEX_CONTACTS_MENU_ITEM' |-->
+<!--translate }}</li>-->
+<!--</ol>-->
+
+<div>
+
+    <div class="row">
+        <div class="col-sm-5">
+            <p>{{'CONTACT_PAGE_TEXT' | translate}}</p>
+            <p>
+                <span class="glyphicon glyphicon-map-marker"></span> {{'CONTACT_PAGE_ADDRESS' | translate}}
+            </p>
+            <p>
+                <span class="glyphicon glyphicon-phone"></span> {{'CONTACT_PAGE_PHONE' | translate}}
+            </p>
+            <p>
+                <span class="glyphicon glyphicon-envelope"></span> {{'CONTACT_PAGE_MAIL' | translate}}
+            </p>
+        </div>
+        <div class="col-sm-7">
+            <div class="col-sm-6 form-group">
+                <input class="form-control" id="name" name="name" ng-model="newsItem.name"
+                       placeholder="{{'CONTACT_PAGE_NAME' | translate}}" type="text" required>
+            </div>
+            <div class="col-sm-6 form-group">
+                <input class="form-control" id="email" name="email" ng-model="newsItem.email"
+                       placeholder="{{'CONTACT_PAGE_MAIL' | translate}}" type="email" required>
+            </div>
+            <div class="col-sm-12 form-group">
+            <textarea class="form-control" id="comment" name="comment" ng-model="newsItem.comment"
+                      placeholder="{{'CONTACT_PAGE_COMMENT' | translate}}" rows="5"></textarea>
+                <br>
+            </div>
+            <div class="col-sm-12 form-group">
+                <button class="btn btn-default pull-right" ng-click="ok()">{{'SEND_BUTTON' | translate}}</button>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

@@ -1,0 +1,10 @@
+<div ng-controller="SubscribeController" class="well text-center" ng-hide="phone">
+    <p>{{ 'SUBSCRIBE_COMMENT' | translate }}</p>
+
+    <div class="input-prepend"><span class="add-on"><i class="icon-envelope"></i></span>
+        <input type="text" style="width: 100%;" id="email" name="email" ng-model="newsItem.email"
+               placeholder="your@email.com">
+    </div>
+    <br/>
+    <button class="btn btn-primary" ng-click="ok()">{{ 'SUBSCRIBE_NOW' | translate }}</button>
+</div>

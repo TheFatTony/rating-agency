@@ -1,0 +1,43 @@
+<footer class="footer navbar-inverse" ng-show="initialized">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <h1>LOGO</h1>
+            </div>
+            <div class="col-sm-2">
+                <h4 class="navbar-link">{{ 'FOOTER_GET_STARTED' | translate }}</h4>
+                <a href="#" class="navbar-link text-left">{{ 'INDEX_MAIN_MENU_ITEM' | translate }}</a>
+            </div>
+            <div class="col-sm-3">
+                <h4 class="navbar-link">{{ 'FOOTER_ABOUT_US' | translate
+                    }}</h4>
+                <a href="#!/about" class="navbar-link text-left">{{ 'INDEX_ABOUT_MENU_ITEM' | translate }}</a>
+            </div>
+            <div class="col-sm-2">
+                <h4 class="navbar-link">{{ 'FOOTER_PRODUCTS' | translate }}</h4>
+                <a href="#!/ico-list" class="navbar-link text-left">{{ 'INDEX_ICO_LIST_MENU_ITEM' | translate
+                    }}</a>
+                <br>
+                <a href="#!/currencies" class="navbar-link text-left">{{ 'INDEX_CURRENCIES_MENU_ITEM' | translate
+                    }}</a>
+            </div>
+            <div class="col-sm-2 text-right">
+                <a href="" class="telegram navbar-link" style="font-size: 30px !important;"><i
+                        class="fa fa-telegram"></i></a>
+                <a href="" class="vk navbar-link"
+                   style="font-size: 30px !important;"><i
+                        class="fa fa-vk"></i></a>
+                <a href=""
+                   class="facebook navbar-link" style="font-size: 30px !important;"><i
+                        class="fa fa-facebook"></i></a>
+                <button type="button" class="btn btn-danger" onclick="window.location.href='#!/contacts'">{{'CONTACT_US_BUTTON' | translate}}
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="navbar-link" ng-show="initialized">
+                <p>© {{ 'INDEX_COPYRIGHT_FOOTER_ITEM' | translate }}</p>
+            </div>
+        </div>
+    </div>
+</footer>

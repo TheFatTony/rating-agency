@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+	<include file="src/main/database/release-1/crpt/tables/access_token.table.xml" />
+	<include file="src/main/database/release-1/crpt/tables/user.table.xml" />
+	<include file="src/main/database/release-1/crpt/tables/user_roles.table.xml" />
+	<include file="src/main/database/release-1/crpt/tables/files.table.xml" />
+	<include file="src/main/database/release-1/crpt/tables/news.table.xml" />
+	<include file="src/main/database/release-1/crpt/tables/ico_list.xml" />
+    <include file="src/main/database/release-1/crpt/tables/currency_rating.xml" />
+	<include file="src/main/database/release-1/crpt/tables/user_inquiries.xml" />
+	<include file="src/main/database/release-1/crpt/tables/subscriptions.table.xml" />
+
+</databaseChangeLog>
+
