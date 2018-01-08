@@ -175,6 +175,12 @@
 
     <profiles>
         <profile>
+            <id>home</id>
+            <properties>
+                <build.profile.id>home</build.profile.id>
+            </properties>
+        </profile>
+        <profile>
             <id>prod</id>
             <properties>
                 <build.profile.id>prod</build.profile.id>
