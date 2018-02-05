@@ -1,16 +1,14 @@
 package com.chieftain.agency.dao.files;
 
-import java.util.List;
+import com.chieftain.agency.dao.JpaDao;
+import com.chieftain.agency.entity.Files;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-
-import org.springframework.transaction.annotation.Transactional;
-
-import com.chieftain.agency.dao.JpaDao;
-import com.chieftain.agency.entity.Files;
+import java.util.List;
 
 public class JpaFilesDao extends JpaDao<Files, Long> implements FilesDao {
 	public JpaFilesDao() {

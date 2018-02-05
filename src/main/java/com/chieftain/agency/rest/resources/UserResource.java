@@ -1,17 +1,9 @@
 package com.chieftain.agency.rest.resources;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.ws.rs.FormParam;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-
+import com.chieftain.agency.entity.AccessToken;
+import com.chieftain.agency.entity.User;
+import com.chieftain.agency.service.UserService;
+import com.chieftain.agency.transfer.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -22,10 +14,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-import com.chieftain.agency.entity.AccessToken;
-import com.chieftain.agency.entity.User;
-import com.chieftain.agency.service.UserService;
-import com.chieftain.agency.transfer.UserDto;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import java.util.HashMap;
+import java.util.Map;
 
 @Component
 @Path("/user")

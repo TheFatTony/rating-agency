@@ -15,7 +15,7 @@
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <context:component-scan base-package="com.chieftain.agency.rest.resources com.chieftain.agency.scheduling com.chieftain.agency.aws"/>
+    <context:component-scan base-package="com.chieftain.agency.rest.resources com.chieftain.agency.scheduling com.chieftain.agency.aws com.chieftain.agency.exchanges"/>
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close">
@@ -31,7 +31,7 @@
     <bean id="entityManagerFactory"
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="persistenceUnitName" value="cryptofundPU"/>
+        <property name="persistenceUnitName" value="agencyPU"/>
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
                 <property name="generateDdl" value="false"/>
@@ -74,6 +74,9 @@
     <bean id="subscriptionsDao" class="com.chieftain.agency.dao.subscriptions.JpaSubscriptionsDao">
     </bean>
 
+    <bean id="tickerDataDao" class="com.chieftain.agency.dao.tickerdata.JpaTickerDataDao">
+    </bean>
+
 
     <bean id="userService" class="com.chieftain.agency.service.DaoUserService">
         <constructor-arg ref="userDao"/>
@@ -86,6 +89,10 @@
     </bean>
 
     <bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper"/>
+
+    <bean id="exchangesRegistry" class="com.chieftain.agency.exchanges.ExchangesRegistry"/>
+
+
 
     <security:authentication-manager id="authenticationManager">
         <security:authentication-provider

@@ -1,18 +1,16 @@
 package com.chieftain.agency.dao.user;
 
-import java.util.List;
+import com.chieftain.agency.dao.JpaDao;
+import com.chieftain.agency.entity.User;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Root;
-
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.transaction.annotation.Transactional;
-
-import com.chieftain.agency.dao.JpaDao;
-import com.chieftain.agency.entity.User;
+import java.util.List;
 
 public class JpaUserDao extends JpaDao<User, Long> implements UserDao {
 	public JpaUserDao() {

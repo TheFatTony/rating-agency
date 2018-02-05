@@ -1,9 +1,9 @@
 package com.chieftain.agency.dao.news;
 
-import java.util.List;
-
 import com.chieftain.agency.dao.Dao;
 import com.chieftain.agency.entity.News;
+
+import java.util.List;
 
 public interface NewsDao extends Dao<News, Long> {
 

@@ -1,8 +1,7 @@
 package com.chieftain.agency.entity;
 
-import java.sql.Timestamp;
-
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 @javax.persistence.Entity
 @Table(name="files")

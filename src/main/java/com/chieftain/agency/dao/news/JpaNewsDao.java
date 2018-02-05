@@ -1,17 +1,15 @@
 package com.chieftain.agency.dao.news;
 
-import java.util.List;
+import com.chieftain.agency.dao.JpaDao;
+import com.chieftain.agency.entity.News;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-
-import org.springframework.transaction.annotation.Transactional;
-
-import com.chieftain.agency.dao.JpaDao;
-import com.chieftain.agency.entity.News;
+import java.util.List;
 
 public class JpaNewsDao extends JpaDao<News, Long> implements NewsDao {
     public JpaNewsDao() {

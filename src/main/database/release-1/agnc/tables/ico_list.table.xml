@@ -6,11 +6,14 @@
 	<changeSet author="thefattony" id="ico-list-table">
 		<createTable tableName="ico_list">
 			<column name="id" type="bigint" />
-			<column name="title" type="varchar(1000)" />
+			<column name="name" type="varchar(1000)" />
+			<column name="image" type="varchar(4000)" />
 			<column name="description" type="varchar(4000)" />
-			<column name="startDate" type="datetime" />
-			<column name="endDate" type="datetime" />
-			<column name="website" type="varchar(1000)" />
+			<column name="website_link" type="varchar(4000)" />
+			<column name="start_time" type="datetime" />
+			<column name="end_time" type="datetime" />
+			<column name="timezone" type="varchar(1000)" />
+			<column name="status" type="varchar(1000)" />
 		</createTable>
 	</changeSet>
 

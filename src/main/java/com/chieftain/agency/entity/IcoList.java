@@ -2,7 +2,6 @@ package com.chieftain.agency.entity;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Date;
 
 @javax.persistence.Entity
 @Table(name = "ico_list")
@@ -12,20 +11,29 @@ public class IcoList implements Entity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
-    private String title;
+    @Column(name = "name")
+    private String name;
 
-    @Column
+    @Column(name = "image")
+    private String image;
+
+    @Column(name = "description")
     private String description;
 
-    @Column
-    private java.sql.Timestamp startDate;
+    @Column(name = "website_link")
+    private String websiteLink;
 
-    @Column
-    private java.sql.Timestamp endDate;
+    @Column(name = "start_time")
+    private Timestamp startTime;
 
-    @Column
-    private String website;
+    @Column(name = "end_time")
+    private Timestamp endTime;
+
+    @Column(name = "timezone")
+    private String timezone;
+
+    @Column(name = "status")
+    private String status;
 
 
     public IcoList() {
@@ -40,12 +48,21 @@ public class IcoList implements Entity {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getDescription() {
@@ -56,38 +73,43 @@ public class IcoList implements Entity {
         this.description = description;
     }
 
-    public java.sql.Timestamp getStartDate() {
-        return startDate;
+    public String getWebsiteLink() {
+        return websiteLink;
     }
 
-    public void setStartDate(java.sql.Timestamp startDate) {
-        this.startDate = startDate;
+    public void setWebsiteLink(String websiteLink) {
+        this.websiteLink = websiteLink;
     }
 
-    public void setStartDate(Date startDate) {
-        if (startDate != null)
-            this.startDate = new Timestamp(startDate.getTime());
+    public Timestamp getStartTime() {
+        return startTime;
     }
 
-    public java.sql.Timestamp getEndDate() {
-        return endDate;
+    public void setStartTime(Timestamp startTime) {
+        this.startTime = startTime;
     }
 
-    public void setEndDate(java.sql.Timestamp endDate) {
-        this.endDate = endDate;
+    public Timestamp getEndTime() {
+        return endTime;
     }
 
-    public void setEndDate(Date endDate) {
-        if (endDate != null)
-            this.endDate = new Timestamp(endDate.getTime());
+    public void setEndTime(Timestamp endTime) {
+        this.endTime = endTime;
     }
 
-    public String getWebsite() {
-        return website;
+    public String getTimezone() {
+        return timezone;
     }
 
-    public void setWebsite(String website) {
-        this.website = website;
+    public void setTimezone(String timezone) {
+        this.timezone = timezone;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

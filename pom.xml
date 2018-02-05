@@ -171,6 +171,22 @@
             <artifactId>spring-cloud-aws-context</artifactId>
             <version>1.0.0.RELEASE</version>
         </dependency>
+
+
+
+        <dependency>
+            <groupId>org.knowm.xchange</groupId>
+            <artifactId>xchange-core</artifactId>
+            <version>4.3.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.knowm.xchange</groupId>
+            <artifactId>xchange-poloniex</artifactId>
+            <version>4.3.2</version>
+        </dependency>
+
+
     </dependencies>
 
     <profiles>

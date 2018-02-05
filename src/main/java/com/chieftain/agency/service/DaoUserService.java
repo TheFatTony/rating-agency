@@ -1,15 +1,14 @@
 package com.chieftain.agency.service;
 
-import java.util.UUID;
-
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.chieftain.agency.dao.accesstoken.AccessTokenDao;
 import com.chieftain.agency.dao.user.UserDao;
 import com.chieftain.agency.entity.AccessToken;
 import com.chieftain.agency.entity.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.UUID;
 
 public class DaoUserService implements UserService {
 	private UserDao userDao;
