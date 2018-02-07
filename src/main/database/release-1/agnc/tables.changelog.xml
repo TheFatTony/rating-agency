@@ -12,7 +12,6 @@
     <include file="src/main/database/release-1/agnc/tables/currency_rating.table.xml" />
 	<include file="src/main/database/release-1/agnc/tables/user_inquiries.table.xml" />
 	<include file="src/main/database/release-1/agnc/tables/subscriptions.table.xml" />
-	<include file="src/main/database/release-1/agnc/tables/ticker_data.table.xml" />
 
 </databaseChangeLog>
 
