@@ -1,19 +1,17 @@
 package com.chieftain.agency.rest;
 
-import java.io.IOException;
+import com.chieftain.agency.entity.User;
+import com.chieftain.agency.service.UserService;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.filter.GenericFilterBean;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.filter.GenericFilterBean;
-
-import com.chieftain.agency.entity.User;
-import com.chieftain.agency.service.UserService;
+import java.io.IOException;
 
 public class AuthenticationTokenProcessingFilter extends GenericFilterBean {
 	private final UserService userService;

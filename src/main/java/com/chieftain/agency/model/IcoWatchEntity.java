@@ -1,38 +1,37 @@
-package com.chieftain.agency.transfer;
+package com.chieftain.agency.model;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.sql.Timestamp;
 
-public class IcoListDto {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class IcoWatchEntity {
 
-    private Long id;
-
+    @JsonProperty("name")
     private String name;
 
+    @JsonProperty("image")
     private String image;
 
+    @JsonProperty("description")
     private String description;
 
+    @JsonProperty("website_link")
     private String websiteLink;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("start_time")
     private Timestamp startTime;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("end_time")
     private Timestamp endTime;
 
+    @JsonProperty("timezone")
     private String timezone;
 
-    private String status;
-
-    public IcoListDto() {
-    }
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -88,13 +87,5 @@ public class IcoListDto {
 
     public void setTimezone(String timezone) {
         this.timezone = timezone;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 }

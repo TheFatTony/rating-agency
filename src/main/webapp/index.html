@@ -20,7 +20,7 @@
           rel="stylesheet">
 
     <!--<link href="vendor/jqwidgets/jqwidgets/styles/jqx.darkblue.css"-->
-          <!--rel="stylesheet">-->
+    <!--rel="stylesheet">-->
     <link href="vendor/jqwidgets/jqwidgets/styles/jqx.orange.css"
           rel="stylesheet">
 
@@ -39,7 +39,9 @@
 <ng-include src="'app/main/main-menu.html'"></ng-include>
 
 <div el-size="size" class="ng-hide" ng-show="initialized ">
-    <div class="container"><div class="alert alert-danger" ng-show="error">{{error}}</div></div>
+    <div class="container">
+        <div class="alert alert-danger" ng-show="error">{{error}}</div>
+    </div>
     <div class="main-container container" ng-view></div>
 </div>
 
@@ -101,7 +103,6 @@
 <script type="text/javascript" src="app/main/main.module.js"></script>
 <script type="text/javascript" src="app/main/main-page.service.js"></script>
 <script type="text/javascript" src="app/main/main.controller.js"></script>
-
 
 
 <script type="text/javascript" src="app/news/news.module.js"></script>

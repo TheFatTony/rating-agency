@@ -34,7 +34,7 @@ public class NewsDto  {
 
 	private String author;
 
-	protected NewsDto() {
+	public NewsDto() {
 		displayDate = publishDate;
 	}
 

@@ -37,8 +37,8 @@ public class JpaIcoListDao extends JpaDao<IcoList, Long> implements IcoListDao {
 		final CriteriaQuery<IcoList> criteriaQuery = builder.createQuery(IcoList.class);
 
 		Root<IcoList> root = criteriaQuery.from(IcoList.class);
-		criteriaQuery.where(builder.greaterThan(root.get("endDate"),  new Timestamp(System.currentTimeMillis())));
-		criteriaQuery.orderBy(builder.asc(root.get("endDate")));
+		criteriaQuery.where(builder.greaterThan(root.get("endTime"),  new Timestamp(System.currentTimeMillis())));
+		criteriaQuery.orderBy(builder.asc(root.get("endTime")));
 
 		TypedQuery<IcoList> typedQuery = this.getEntityManager().createQuery(criteriaQuery);
 		typedQuery.setMaxResults(5);

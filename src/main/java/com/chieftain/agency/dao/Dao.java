@@ -1,8 +1,8 @@
 package com.chieftain.agency.dao;
 
-import java.util.List;
-
 import com.chieftain.agency.entity.Entity;
+
+import java.util.List;
 
 public interface Dao<T extends Entity, I> {
 	List<T> findAll();

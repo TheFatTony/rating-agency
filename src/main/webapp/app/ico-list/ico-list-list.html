@@ -23,11 +23,11 @@
     <tbody>
     <tr ng-repeat="item in items">
         <th scope="row">{{$index + 1}}</th>
-        <td>{{item.title}}</td>
+        <td>{{item.name}}</td>
         <!--<td><a href="#!/ico-list/view/{{item.id}}">{{item.title}}</a></td>-->
-        <td>{{item.startDate | date:'yyyy-MM-dd'}}</td>
-        <td>{{item.endDate | date:'yyyy-MM-dd'}}</td>
-        <td><a href="{{item.website}}">{{item.title}}</a></td>
+        <td>{{item.startTime | date:'yyyy-MM-dd'}}</td>
+        <td>{{item.endTime | date:'yyyy-MM-dd'}}</td>
+        <td><a href="{{item.websiteLink}}">{{item.name}}</a></td>
         <td>{{item.description}}</td>
     </tr>
     </tbody>

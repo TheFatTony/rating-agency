@@ -1,14 +1,13 @@
 package com.chieftain.agency.dao.accesstoken;
 
+import com.chieftain.agency.dao.JpaDao;
+import com.chieftain.agency.entity.AccessToken;
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.persistence.NoResultException;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-
-import org.springframework.transaction.annotation.Transactional;
-
-import com.chieftain.agency.dao.JpaDao;
-import com.chieftain.agency.entity.AccessToken;
 
 public class JpaAccessTokenDao extends JpaDao<AccessToken, Long> implements AccessTokenDao
 {
